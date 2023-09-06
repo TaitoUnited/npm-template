@@ -1,0 +1,49 @@
+{
+  "name": "@taito/npm-template",
+  "version": "0.0.0",
+  "description": "Simple template that can be used in creating npm pacakges.",
+  "scripts": {
+    "test": "vitest",
+    "build:dev": "tsup",
+    "lint": "eslint src/* --fix --max-warnings=0",
+    "format": "prettier . --write",
+    "build": "tsup --minify",
+    "prepare": "husky install"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.0.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3",
+    "husky": "^8.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.js.map"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/TaitoUnited/npm-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaitoUnited/npm-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TaitoUnited/npm-template/issues"
+  }
+}
