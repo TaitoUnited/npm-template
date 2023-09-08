@@ -11,9 +11,9 @@ Change the `homepage / repository / bugs` urls in `package.json`.
 During developement it is recommended to run `npm link` command in your package repository (instead of pushing to npm during developement), and `npm link <package-name>` in another project for testing the usage.
 
 ```console
-foo@bar mypackage % npm link 
-foo@bar mypackage % cd /testproject
-foo@bar testproject % npm link <package-name>
+mypackage % npm link 
+mypackage % cd /testproject
+testproject % npm link <package-name>
 ```
 
 Note: `npm link <package-name>` refers to the name of the package (ie. name in package.json)
