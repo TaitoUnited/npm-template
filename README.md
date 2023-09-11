@@ -8,7 +8,13 @@ Click "Use this template" and create a new repository for your package.
 
 Change the `homepage / repository / bugs` urls in `package.json`.
 
-During developement it is recommended to run `npm link` command in your package repository (instead of pushing to npm during developement), and `npm link <package-name>` in another project for testing the usage.
+## Development
+
+During development you probably want to test the package in a project *without* publishing it to the npm registry.
+
+### Local development (without docker)
+
+Run `npm link` command in your package repository, and `npm link <package-name>` in another project to link it.
 
 ```console
 mypackage % npm link 
@@ -17,6 +23,22 @@ testproject % npm link <package-name>
 ```
 
 Note: `npm link <package-name>` refers to the name of the package (ie. name in package.json)
+
+In the code you should now be able to import the package as if it was installed it with npm.
+
+### With Docker
+
+If you work on a package and want to test it with a containerized application `npm link` will *not* work as expected. A fairly easy workaround is to use [yalc](https://github.com/wclr/yalc). Yalc publishes the application under a directory.
+
+```console
+mypackage % yalc publish <package-name>
+mypackage % cd testproject 
+testproject % yalc add <package-name>
+testproject % ls -a 
+.yalc 
+```
+
+You then have to either copy or mount the `.yalc` directory in to your container.
 
 ## Publishing to npm
 
